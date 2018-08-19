@@ -34,22 +34,32 @@ public class BankAccount {
     }
 
 
-    public void deposit(int addMoney){
-        if(addMoney < 0){
-            System.out.println("You cannot deposit a negative amount.");
-        } else {
-            this.balance = this.balance + addMoney;
-            System.out.println("$" + addMoney + " deposited into the account number " + this.acctNum);
-        }
+    public int deposit(int addMoney){
+        boolean invalid = false;
+        do {
+            if (addMoney < 0) {
+                System.out.println("You cannot deposit a negative amount.");
+                invalid = true;
+                return this.balance;
+            } else {
+                this.balance = this.balance + addMoney;
+                if(this.balance >= 1) {
+                    System.out.println("$" + addMoney + " deposited into the account number " + this.acctNum);
+                }
+                return this.balance;
+            }
+        }while (!invalid);
     }
 
     public void withdraw(int removeMoney){
-        if (removeMoney > this.balance){
-            System.out.println("Not enough money in account");
+        if (removeMoney > this.balance || removeMoney < 0){
+            System.out.println("Not enough money in account.");
         } else {
             this.prevBalance = this.balance;
             this.balance = this.balance - removeMoney;
-            System.out.println("Previous balance: " + prevBalance + "\nWithdrawn amount: " + removeMoney + "\nYour current balance is: " + this.balance);
+            if( removeMoney >= 1) {
+                System.out.println("Previous balance: " + prevBalance + "\nWithdrawn amount: " + removeMoney + "\nYour current balance is: " + this.balance);
+            }
         }
     }
 
@@ -65,5 +75,13 @@ public class BankAccount {
         }
         person = Integer.toString(this.acctNum);
         return this.acctNum;
+    }
+
+    public void showAccountDetails(){
+        System.out.println("***********************\n" +
+                "***********************\n" +
+                "Account Number: " + this.acctNum + '\n' +
+                "Account Balance: " + this.balance + '\n');
+
     }
 }
