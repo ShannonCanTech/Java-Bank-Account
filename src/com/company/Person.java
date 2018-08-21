@@ -1,3 +1,7 @@
+/*You can create an ArrayList of BankAccounts
+* and give each person one
+* Using a foreach person print bank account info in main method*/
+
 package com.company;
 
 public class Person {

@@ -1,3 +1,8 @@
+/*You can create an ArrayList of Person
+and give each person a bank account number
+and allow the user to set their bank balance
+while performing the withdrawal and deposit actions.*/
+
 package com.company;
 
 import java.util.Random;
@@ -63,10 +68,10 @@ public class BankAccount {
         }
     }
 
-//The method below creates a new account number and assigns it to the String person
-//    This method doesn't take an integer as an argument because we don't want to assign an account number to an account number
-//    The String person argument is perfect, so when we set Person using the person object in the main method, we'll be able to
-//    store the person object and assign them to an account number
+/*The method below creates a new account number and assigns it to the String person
+    This method doesn't take an integer as an argument because we don't want to assign an account number to an account number
+    The String person argument is perfect, so when we set Person using the person object in the main method, we'll be able to
+    store the person object and assign them to an account number*/
     public int createNewAcctNum(String person) {
         rand = new Random();
 //        The code below generates no more than 12 random numbers and stores them into the account number
